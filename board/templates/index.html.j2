@@ -5,8 +5,8 @@
 {% block body %}
 <div id="absent" class="people-list">
   <div class="list-header transparent-box">
-    Not Signed In
-        </div>
+    Out
+  </div>
   {% for person in people %}
   <a href="tap-in/{{ person.id }}">
     <div class="person transparent-box">
@@ -18,7 +18,7 @@
 </div>
 <div id="present" class="people-list">
   <div class="list-header transparent-box">
-    Present
+    In
   </div>
   {% for person in present %}
   <a href="tap-out/{{ person.id }}">
