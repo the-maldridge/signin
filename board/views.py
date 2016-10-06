@@ -1,3 +1,4 @@
+from django.forms import formset_factory
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
@@ -5,6 +6,8 @@ import datetime
 
 from .models import Person
 from .models import Timeslot
+
+from .forms import NewUserForm
 
 def index(request):
     people = Person.objects.filter(active=True)
@@ -38,3 +41,12 @@ def tap_out(request, person_id):
 def log(request):
     t = Timeslot.objects.all()
     return render(request, "log.html.j2", {"log":t})
+
+def new(request):
+    if request.method == 'GET':
+        form = NewUserForm()
+        return render(request, "new.html.j2", {"form":form})
+    else:
+        p = NewUserForm(request.POST)
+        p.save()
+        return redirect(index)

@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^tap-in/([\d]*)$', views.tap_in),
     url(r'^tap-out/([\d]*)$', views.tap_out),
     url(r'^log$', views.log),
+    url(r'^new$', views.new),
 ]
