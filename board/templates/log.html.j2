@@ -20,3 +20,11 @@
         {% endfor %}
     </table>
 {% endblock %}
+
+{% block baseboard %}
+    <a href="{% url 'board' %}">
+        <div class="transparent-box baseboard-button">
+            Board
+        </div>
+    </a>
+{% endblock %}

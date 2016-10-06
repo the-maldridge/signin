@@ -33,6 +33,16 @@ tr:nth-child(odd){
     float: right;
 }
 
+#baseboard {
+    position: absolute;
+    bottom: 0.5em;
+}
+
+.baseboard-button {
+    padding: 1em;
+    width: auto;
+}
+
 .transparent-box {
     border-width: 1px;
     border-style: solid;
