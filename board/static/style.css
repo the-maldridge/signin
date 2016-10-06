@@ -6,6 +6,7 @@ body {
     background: #ffffff;
     background-image: url("background.png");
     background-size: cover;
+    background-attachment: fixed;
 }
 
 table {
@@ -34,7 +35,7 @@ tr:nth-child(odd){
 }
 
 #baseboard {
-    position: absolute;
+    position: fixed;
     bottom: 0.5em;
 }
 
