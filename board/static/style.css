@@ -1,6 +1,16 @@
 a, a:visited, a:active, a:hover {
     text-decoration: none;
-    color: black;
+}
+
+body {
+    background: #ffffff;
+    background-image: url("background.png");
+    background-size: cover;
+}
+
+table {
+    margin: auto;
+    padding: 1em;
 }
 
 td {
@@ -8,7 +18,11 @@ td {
 }
 
 tr:nth-child(even){
-    background-color: #aaa;
+    background-color: #333;
+}
+
+tr:nth-child(odd){
+    background-color: #222;
 }
 
 #absent {
@@ -25,7 +39,8 @@ tr:nth-child(even){
     border-color: #000000;
     border-radius: 0.5em;
     background-color: rgb(255,255,255);
-    background-color: rgba(0,0,0,0.25);
+    background-color: rgba(0,0,0,0.50);
+    color: white;
 }
 
 .people-list {
