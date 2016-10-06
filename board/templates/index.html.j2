@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Sign in Board</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        <div>
+            <div>
+                Not Signed In
+            </div>
+            {% for person in people %}
+                <a href="tap-in/{{ person.id }}">
+                    <div class="person">
+                        {{ person.name }}<br />
+                        ({{ person.alias }})
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+        <div>
+            <div>
+                Present
+            </div>
+            {% for person in present %}
+                <a href="tap-out/{{ person.id }}">
+                    <div class="person">
+                        {{ person.name }}<br />
+                        ({{ person.alias }})
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </body>
+</html>
