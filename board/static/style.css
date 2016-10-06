@@ -3,6 +3,14 @@ a, a:visited, a:active, a:hover {
     color: black;
 }
 
+td {
+    padding: 0.5em;
+}
+
+tr:nth-child(even){
+    background-color: #aaa;
+}
+
 #absent {
     float: left;
 }
