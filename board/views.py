@@ -34,3 +34,7 @@ def tap_out(request, person_id):
             slot.save()
             return redirect(index)
     return HttpResponse("Tried to sign out someone who isn't here!?")
+
+def log(request):
+    t = Timeslot.objects.all()
+    return render(request, "log.html.j2", {"log":t})

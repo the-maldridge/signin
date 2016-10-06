@@ -1,35 +1,32 @@
-<html>
-    <head>
-        <title>Sign in Board</title>
-        {% load staticfiles %}
-        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-    </head>
-    <body>
-      <div id="absent" class="people-list">
-        <div class="list-header transparent-box">
-          Not Signed In
+{% extends "base.html.j2" %}
+
+{% block title %}Sign in Board{% endblock %}
+
+{% block body %}
+<div id="absent" class="people-list">
+  <div class="list-header transparent-box">
+    Not Signed In
         </div>
-        {% for person in people %}
-        <a href="tap-in/{{ person.id }}">
-          <div class="person transparent-box">
-            {{ person.name }}<br />
-            ({{ person.alias }})
-          </div>
+  {% for person in people %}
+  <a href="tap-in/{{ person.id }}">
+    <div class="person transparent-box">
+      {{ person.name }}<br />
+      ({{ person.alias }})
+    </div>
+  </a>
+  {% endfor %}
+</div>
+<div id="present" class="people-list">
+  <div class="list-header transparent-box">
+    Present
+  </div>
+  {% for person in present %}
+  <a href="tap-out/{{ person.id }}">
+    <div class="person transparent-box">
+      {{ person.name }}<br />
+      ({{ person.alias }})
+    </div>
         </a>
-        {% endfor %}
-      </div>
-      <div id="present" class="people-list">
-        <div class="list-header transparent-box">
-          Present
-        </div>
-        {% for person in present %}
-        <a href="tap-out/{{ person.id }}">
-          <div class="person transparent-box">
-            {{ person.name }}<br />
-            ({{ person.alias }})
-          </div>
-        </a>
-        {% endfor %}
-      </div>
-    </body>
-</html>
+  {% endfor %}
+</div>
+{% endblock %}

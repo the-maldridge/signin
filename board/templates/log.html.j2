@@ -1,0 +1,22 @@
+{% extends "base.html.j2" %}
+
+{% block title %}Log{% endblock %}
+
+{% block body %}
+    <table>
+        <tr>    
+            <th>Name</th>
+            <th>Alias</th>  
+            <th>Time In</th>
+            <th>Time Out</th>
+        </tr>
+        {% for time in log %}
+            <tr>
+                <td>{{ time.person.name }}</td>
+                <td>{{ time.person.alias }}</td>
+                <td>{{ time.time_in }}</td>
+                <td>{{ time.time_out }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
