@@ -1,4 +1,3 @@
-from django.forms import formset_factory
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
@@ -8,6 +7,7 @@ from .models import Person
 from .models import Timeslot
 
 from .forms import NewUserForm
+
 
 def index(request):
     people = Person.objects.filter(active=True)
@@ -19,7 +19,10 @@ def index(request):
 
     # Make people contain only people that aren't signed in
     people = list(set(people)-set(p_present))
-    return render(request, "index.html.j2", {"people":people, "present":p_present})
+
+    return render(request, "index.html.j2", {"people": people,
+                                             "present": p_present})
+
 
 def tap_in(request, person_id):
     t = Timeslot()
@@ -28,6 +31,7 @@ def tap_in(request, person_id):
     t.time_in = datetime.datetime.now()
     t.save()
     return redirect(index)
+
 
 def tap_out(request, person_id):
     t = Timeslot.objects.filter(time_out=None)
@@ -38,14 +42,27 @@ def tap_out(request, person_id):
             return redirect(index)
     return HttpResponse("Tried to sign out someone who isn't here!?")
 
+
+def tap_all_out(request):
+    t = list(Timeslot.objects.filter(time_out=None))
+    if t:
+        for slot in t:
+            slot.time_out = datetime.datetime.now()
+            slot.save()
+        return redirect(index)
+    else:
+        return redirect(index)
+
+
 def log(request):
     t = Timeslot.objects.all()
-    return render(request, "log.html.j2", {"log":t})
+    return render(request, "log.html.j2", {"log": t})
+
 
 def new(request):
     if request.method == 'GET':
         form = NewUserForm()
-        return render(request, "new.html.j2", {"form":form})
+        return render(request, "new.html.j2", {"form": form})
     else:
         p = NewUserForm(request.POST)
         p.save()

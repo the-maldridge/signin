@@ -10,26 +10,24 @@
             </div>
             <div class="people-list">
             {% for person in people %}
-                <a href="tap-in/{{ person.id }}">
-                    <div class="person transparent-box">
-                        {{ person.name }}<br />
-                        ({{ person.alias }})
-                    </div>
+                <a href="tap-in/{{ person.id }}" class="person transparent-box">
+                    {{ person.name }}<br />
+                    ({{ person.alias }})
                 </a>
             {% endfor %}
             </div>
         </div>
         <div id="present">
-            <div class="list-header transparent-box">
-                In
-            </div>
+            <a href="tap-all-out">
+                <div class="list-header transparent-box">
+                    In
+                </div>
+            </a>
             <div class="people-list">
             {% for person in present %}
-                <a href="tap-out/{{ person.id }}">
-                    <div class="person transparent-box">
-                        {{ person.name }}<br />
-                        ({{ person.alias }})
-                    </div>
+                <a href="tap-out/{{ person.id }}" class="person transparent-box">
+                    {{ person.name }}<br />
+                    ({{ person.alias }})
                 </a>
             {% endfor %}
             </div>
