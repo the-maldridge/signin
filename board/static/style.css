@@ -26,12 +26,17 @@ tr:nth-child(odd){
     background-color: #222;
 }
 
+
+#flex-container {
+    display: flex;
+}
+
 #absent {
-    float: left;
+    flex: 0 0 65%;
 }
 
 #present {
-    float: right;
+    flex: 1;
 }
 
 #baseboard {
@@ -55,21 +60,21 @@ tr:nth-child(odd){
     color: white;
 }
 
-.people-list {
-    padding: 1em;
-}
-
 .list-header {
     padding: 0.5em;
     font-size: xx-large;
     font-weight: bold;
-    width: auto;
     text-align: center;
+    margin: 1em;
+}
+
+.people-list {
+    column-count: 4;
 }
 
 .person {
-    padding: 1em;
-    margin: 0.5em;
-    width: auto;
     text-align: center;
+    display: inline-block;
+    padding: 1em;
+    margin: 1em;
 }

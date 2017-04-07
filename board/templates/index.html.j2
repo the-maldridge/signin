@@ -3,32 +3,38 @@
 {% block title %}Sign in Board{% endblock %}
 
 {% block body %}
-<div id="absent" class="people-list">
-  <div class="list-header transparent-box">
-    Out
-  </div>
-  {% for person in people %}
-  <a href="tap-in/{{ person.id }}">
-    <div class="person transparent-box">
-      {{ person.name }}<br />
-      ({{ person.alias }})
+    <div id="flex-container">
+        <div id="absent">
+            <div class="list-header transparent-box">
+                Out
+            </div>
+            <div class="people-list">
+            {% for person in people %}
+                <a href="tap-in/{{ person.id }}">
+                    <div class="person transparent-box">
+                        {{ person.name }}<br />
+                        ({{ person.alias }})
+                    </div>
+                </a>
+            {% endfor %}
+            </div>
+        </div>
+        <div id="present">
+            <div class="list-header transparent-box">
+                In
+            </div>
+            <div class="people-list">
+            {% for person in present %}
+                <a href="tap-out/{{ person.id }}">
+                    <div class="person transparent-box">
+                        {{ person.name }}<br />
+                        ({{ person.alias }})
+                    </div>
+                </a>
+            {% endfor %}
+            </div>
+        </div>
     </div>
-  </a>
-  {% endfor %}
-</div>
-<div id="present" class="people-list">
-  <div class="list-header transparent-box">
-    In
-  </div>
-  {% for person in present %}
-  <a href="tap-out/{{ person.id }}">
-    <div class="person transparent-box">
-      {{ person.name }}<br />
-      ({{ person.alias }})
-    </div>
-        </a>
-  {% endfor %}
-</div>
 {% endblock %}
 
 {% block baseboard %}
